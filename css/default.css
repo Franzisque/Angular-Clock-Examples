@@ -1,0 +1,55 @@
+#analogClockView {
+    background: #ffffff;
+	position: relative;
+	width: 200px;
+	height: 200px;
+}
+
+#digitalClockView {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-size: 24pt;
+}
+
+.hour-hand {
+	width: 6px;
+	height: 80px;
+	position: absolute;
+	left: 100px;
+	top: 30px;
+	background-color: #000;
+	-webkit-transform-origin: 0px 70px;
+	transform-origin: 3px 70px;
+}
+
+.minute-hand {
+	width: 4px;
+	height: 110px;
+	position: absolute;
+	left: 100px;
+	background-color: #000000;
+	-webkit-transform-origin: 0px 100px;
+	transform-origin: 2px 100px;
+}
+
+.second-hand {
+	width: 1px;
+	height: 110px;
+	position: absolute;
+	left: 100px;
+	background-color: #cc0000;
+	-webkit-transform-origin: 0px 100px;
+	transform-origin: 0px 100px;
+}
+
+.is-animated {
+	-webkit-transition: -webkit-transform .4s;
+	transition: transform .4s;
+}
+
+button {
+    margin-top: 20px;
+}

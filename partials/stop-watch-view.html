@@ -1,0 +1,36 @@
+<!-- links for ng-route -->
+<a href="#"> time | </a>
+<a href="#/stop-watch"> stopwatch </a>
+
+<!-- scope of stop watch controller -->
+<div ng-controller="stopWatchCtrl">
+    <!-- display hours:minutes:seconds -->
+    <div>
+        {{ stopWatch.hours }} :
+        {{ stopWatch.minutes }} :
+        {{ stopWatch.seconds }}
+    </div>
+    <!-- buttons for start, stop and reset -->
+    <button ng-click="stopWatch.startTimeRecording()"> start </button>
+    <button ng-click="stopWatch.stopTimeRecording()"> stop </button>
+    <button ng-click="stopWatch.resetTimeWatch()"> reset </button>
+
+    <div description-list>
+        <!-- directive for description list - render the list, delete single items and the whole list -->
+        <input ng-model="text" type="text" placeholder="enter description">
+        <button ng-click="descriptionList.saveOutcome()"> save </button>
+        <ol>
+            <!-- track by $index was necessary to be able to insert similar entries -->
+            <li ng-repeat="description in descriptionList.descriptions track by $index">
+                <label> {{ description.text }} | </label>
+                <span>
+                    {{ description.hours }} :
+                    {{ description.minutes }} :
+                    {{ description.seconds }}
+                </span>
+                <button ng-click="descriptionList.deleteDescription($index)"> X </button>
+            </li>
+        </ol>
+        <button ng-click="descriptionList.deleteList()"> delete list </button>
+    </div>
+</div>

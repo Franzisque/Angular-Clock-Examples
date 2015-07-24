@@ -1,0 +1,29 @@
+<!-- scope of clock controller -->
+<div ng-controller="clockCtrl">
+    <!-- links for ng-route -->
+    <a href="#"> time | </a>
+    <a href="#/stop-watch"> stopwatch </a>
+
+    <!-- show and hide analog- and digital clock view on button click -->
+    <div ng-show="showAnalog" id="digitalClockView">
+        {{ clock.getHours() }} : {{ clock.getMinutes() }} : {{ clock.getSeconds() }}
+    </div>
+    <!-- directive for hand-animation -->
+    <div ng-hide="showAnalog" id="analogClockView">
+        <div is-animated class="minute-hand"></div>
+        <div is-animated class="hour-hand"></div>
+        <div is-animated class="second-hand"></div>
+    </div>
+    <div>
+        <!-- buttons to show and hide analog- and digital clock view -->
+        <button ng-click="showAnalog = false"> analog clock </button>
+        <button ng-click="showAnalog = true"> digital clock </button>
+    </div>
+    <!-- display the timezone offset-->
+    <a> time offset: </a>
+    <a class="displayTimeOffset"> {{ clock.getTimezoneOffset() }} </a>
+    <div>
+        <button ng-click="clock.setTimezoneOffset(clock.getTimezoneOffset() -1)">-1</button>
+        <button ng-click="clock.setTimezoneOffset(clock.getTimezoneOffset() +1)">+1</button>
+    </div>
+</div>
